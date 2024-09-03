@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="Navbar" t-inherit="point_of_sale.Navbar" t-inherit-mode="extension" primary="1">
+        <xpath expr="//li[hasclass('close-button')]" position="replace">
+            <!-- <attribute name="t-if">access.isCloseAvailable</attribute> -->
+            <t t-if="access.isCloseAvailable">
+                <li class="close-button" t-on-click="closeSession">
+                    <a class="dropdown-item py-2">
+                        Close Session
+                    </a>
+                </li>
+            </t>
+        </xpath>
+        <xpath expr="//li[@t-if='this.env.debug']" position="replace">
+            <t t-if="access.isDebugAvailable">
+                <li t-if="this.env.debug" class="menu-item navbar-button" t-on-click="() => debug.toggleWidget()">
+                    <a class="dropdown-item py-2">
+                        Debug Window
+                    </a>
+                </li>
+            </t>
+        </xpath>
+    </t>
+
+</templates>

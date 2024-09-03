@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <template xml:space="preserve">
+     <t t-extend="ListView.buttons">
+         <t t-jquery="button.o_list_export_xlsx" t-operation="before">
+             <button t-if="widget.modelName == 'vendor.settings'" class="btn btn-primary o_list_add_multi_vendor" type="button">Add Multi Vendor</button>
+         </t>
+     </t>
+ </template>

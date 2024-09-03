@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="account_move_form_inherited" model="ir.ui.view">
+            <field name="name">Account Move</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='ref']" position="after">
+                    <field name="project_id" invisible="move_type not in ['entry']"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='tax_tag_ids']" position="replace">
+                    <field name="tax_tag_ids"
+                               widget="many2many_tags"
+                               string="Analytic Tags"
+                               optional="show"
+                               options="{'no_create': False}"/>
+                </xpath>
+                <xpath expr="//field[@name='line_ids']/tree/field[@name='currency_id']" position="after">
+                    <field name="analytic_account_id" optional="hide"/>
+                </xpath>
+<!--                <xpath expr="//field[@name='line_ids']/tree/field[@name='tax_ids']" position="attributes">-->
+<!--                    <attribute name="string">Analytic Tax</attribute>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//field[@name='ref']" position="replace"/>-->
+            </field>
+        </record>
+    </data>
+</odoo>

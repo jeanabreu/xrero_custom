@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="custom_stock_form_inherit_custom_stock_jml" model="ir.ui.view">
+        <field name="name">custom.stock.form.inherit.custom.stock.jml</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="custom_stock.stock_view_picking_form_inherit_custom_stock"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_transfer_release']" position="replace"/>
+        </field>
+    </record>
+</odoo>

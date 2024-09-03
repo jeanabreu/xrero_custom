@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="OrderlineCustomerNoteButton" t-inherit="point_of_sale.OrderlineCustomerNoteButton" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('control-button')]" position="attributes">
+            <attribute name="t-att-style">!access.isCustomerAvaliable? 'display: none': ''</attribute>
+        </xpath>
+    </t>
+    <t t-name="SaveButton" t-inherit="point_of_sale.SaveButton" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('control-button')]" position="attributes">
+            <attribute name="t-att-style">!access.isSaveAvailable? 'display: none': ''</attribute>
+        </xpath>
+    </t>
+    <t t-name="RefundButton" t-inherit="point_of_sale.RefundButton" t-inherit-mode="extension">
+        <xpath expr="//button[hasclass('control-button')]" position="attributes">
+            <attribute name="t-att-style">!access.isRefundAvailable? 'display: none': ''</attribute>
+        </xpath>
+    </t>
+    <t t-name="SetFiscalPositionButton" t-inherit="point_of_sale.SetFiscalPositionButton" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('control-button', 'o_fiscal_position_button')]" position="attributes">
+            <attribute name="t-att-style">!access.isFiscalAvailable? 'display: none': ''</attribute>
+        </xpath>
+    </t>
+    <t t-name="SetPricelistButton" t-inherit="point_of_sale.SetPricelistButton" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('control-button', 'o_pricelist_button')]" position="attributes">
+            <attribute name="t-att-style">!access.isPriceListAvailable? 'display: none': ''</attribute>
+        </xpath>
+    </t>
+    <t t-name="SetSaleOrderButton" t-inherit="pos_sale.SetSaleOrderButton" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('control-button', 'o_sale_order_button')]" position="attributes">
+            <attribute name="t-att-style">!access.isQuotationAvailable? 'display: none': ''</attribute>
+        </xpath>
+    </t>
+</templates>
